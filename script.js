@@ -29,7 +29,7 @@ le nombre de la semaine dans l’année */
 let someDate = new Date();
 
 const timeMachine = (date) => {
-    //    => last day of previous month ++ hours and minutes reset
+    //    => last day of previous month 
     const lastDayOfPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0, 0);
 
     //    => reset hours & mins
