@@ -8,16 +8,16 @@ sinon : on affiche le nombre n */
 
 const algo = (n) => {
     if (n % 3 === 0 && n % 5 === 0) {
-      return 'GarçonFille'
-    } else if (n % 3 === 0 ) {
-      return 'Garçon' 
+        return 'GarçonFille'
+    } else if (n % 3 === 0) {
+        return 'Garçon'
     } else if (n % 5 === 0) {
-      return 'Fille'
+        return 'Fille'
     } else {
-      return n
+        return n
     }
-  }
-  
+}
+
 /* Exo date 
   Pour chaque date n dans une liste, on veut avoir ces résultats affichés en fonction des dates de la liste :
 
@@ -26,17 +26,17 @@ la date avec les heures et minutes mises à 0
 la date au format DD/MM/YYYY hh:mm
 le nombre de la semaine dans l’année */
 
-  let someDate = new Date();
+let someDate = new Date();
 
-  const timeMachine = (date) => {
+const timeMachine = (date) => {
     //    => last day of previous month ++ hours and minutes reset
-    const lastDayOfPrevMonth = new Date(date.getFullYear(), date.getMonth(),0,0);
+    const lastDayOfPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0, 0);
 
     //    => reset hours & mins
     const resetTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0)
 
     //    => date DD/MM/YYYY hh:mm
-    const formatDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+    const formatDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
 
     //    => nb weeks in year
     const getWeekNum = (date) => {
@@ -44,9 +44,9 @@ le nombre de la semaine dans l’année */
         const firstDayOfYear = new Date(date.getFullYear(), 0, 1)
         const msInADay = (24 * 60 * 60 * 1000)
         return Math.ceil((Math.floor(lastDayOfYear - firstDayOfYear) / msInADay) / 7)
-      }
-    
-    return {lastDayOfPrevMonth, resetTime, formatDate, weekNum: getWeekNum(date)}
-  }
+    }
+
+    return { lastDayOfPrevMonth, resetTime, formatDate, weekNum: getWeekNum(date) }
+}
 
 console.log('time machine', timeMachine(someDate))
